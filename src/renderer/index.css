@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand-50: #ecfdf5;
+  --color-brand-100: #d1fae5;
+  --color-brand-200: #a7f3d0;
+  --color-brand-300: #6ee7b7;
+  --color-brand-400: #34d399;
+  --color-brand-500: #10b981;
+  --color-brand-600: #059669;
+  --color-brand-700: #047857;
+  --color-brand-800: #065f46;
+  --color-brand-900: #064e3b;
+  --font-sans: 'Segoe UI', 'Segoe UI Variable', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+html.ui-grande {
+  font-size: 18px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #f6f8f7;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 1px;
+}
+
+/* Barra de rolagem discreta */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f3f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5ccc9;
+  border: 3px solid #f1f3f2;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9aa5a0;
+}
+::-webkit-scrollbar-corner {
+  background: #f1f3f2;
+}
+
+/* Destaque usado pela ajuda ("Mostrar onde fica") */
+@keyframes tour-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.75);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+.tour-highlight {
+  animation: tour-pulse 1s ease-in-out 4;
+  outline: 3px solid var(--color-brand-500) !important;
+  outline-offset: 2px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 5;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.anim-in {
+  animation: fade-in 0.14s ease-out;
+}
+
+.cell-editor {
+  resize: none;
+  overflow: hidden;
+  white-space: pre;
+  border: 0;
+  outline: none;
+  padding: 0 4px;
+  margin: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+}
+.cell-editor.active {
+  background: #fff;
+  color: #111;
+  caret-color: #111;
+  box-shadow:
+    0 0 0 2px var(--color-brand-600),
+    0 4px 14px rgba(0, 0, 0, 0.18);
+}
